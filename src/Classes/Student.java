@@ -19,9 +19,9 @@ public class Student extends Person
         grades.add(grade);
     }
 
-    public float calculateGPA()
+    public int calculateGPA()
     {
-        float sumOfGrades = 0;
+        int sumOfGrades = 0;
         for (int grade : grades)
         {
             sumOfGrades += grade;

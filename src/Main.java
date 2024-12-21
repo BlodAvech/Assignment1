@@ -79,7 +79,9 @@ public class Main {
 
         for(Teacher teacher : teachers)
         {
-            System.out.println(teacher.getName()+"  :  "+ teacher.getSalary() + " + "+(teacher.getYearsOfExpirience()+"%") + " = " + teacher.getSalary() * teacher.getYearsOfExpirience() );
+            System.out.print(teacher.getName()+"  :  " + teacher.getSalary() + " + "+(teacher.getYearsOfExpirience()+"%") + " = ");
+            teacher.giveRaise(teacher.getYearsOfExpirience());
+            System.out.println(teacher.getSalary());
         }
 
         for(Student student : students)

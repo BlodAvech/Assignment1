@@ -4,6 +4,7 @@ public class Teacher extends Person
 {
     private String subject;
     private int yearsOfExpirience;
+    private int salary;
 
     public int getSalary() {
         return salary;
@@ -17,11 +18,9 @@ public class Teacher extends Person
         return subject;
     }
 
-    private int salary;
-
     public void giveRaise(float percentage)
     {
-        salary = (int)(salary * (percentage / 100));
+        salary = (int)(salary * ((percentage / 100f)+1));
     }
 
     public Teacher(String name, String surname, int age, boolean gender , String subject , int yearsOfExpirience , int salary)
