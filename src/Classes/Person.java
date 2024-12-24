@@ -2,6 +2,8 @@ package Classes;
 
 public abstract class Person
 {
+    private static int id = 1;
+    private int id_gen;
     private String name;
     private String surname;
     private int age;
@@ -10,7 +12,7 @@ public abstract class Person
 
     public Person()
     {
-
+        id_gen = id++;
     }
 
     public Person(String name , String surname , int age , boolean gender)
@@ -29,5 +31,9 @@ public abstract class Person
     @Override
     public String toString() {
         return ("Hi, i am " + name + " " + surname+", a " + age + "-year-old " + (gender?"Male":"Female")+".");
+    }
+
+    public int getId_gen() {
+        return id_gen;
     }
 }

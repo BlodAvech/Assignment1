@@ -15,33 +15,29 @@ public class Main {
         ArrayList<Teacher> teachers  = new ArrayList<>();
         School school = new School();
 
-        File stundentsFile = new File("Materials/students.txt");
+        File studentsFile = new File("Materials/students.txt");
         File teachersFile = new File("Materials/teachers.txt");
 
-        //Students Read
-        Scanner scanner = new Scanner(stundentsFile);
-        while (scanner.hasNextLine())
-        {
-            String name = scanner.next();
-            String surname = scanner.next();
-            int age = Integer.parseInt(scanner.next());
-            boolean gender = true;
-            switch (scanner.next()){
-                case "Male":
-                    gender = true;
-                    break;
-                case "Female":
-                    gender = false;
-                    break;
-            }
+        Scanner scanner = new Scanner(studentsFile);
+        while (scanner.hasNextLine()) {
+            String line = scanner.nextLine();
+            String[] parts = line.split(" "); // Разделяем строку по пробелам
+
+            // Парсим данные студента
+            int barcode = Integer.parseInt(parts[0]);
+            String name = parts[1];
+            String surname = parts[2];
+            int age = Integer.parseInt(parts[3]);
+
+            boolean gender = parts[4].equalsIgnoreCase("Male");
+
+            // Считываем оценки начиная с 5-го индекса
             ArrayList<Integer> grades = new ArrayList<>();
-
-            while (scanner.hasNextInt())
-            {
-                grades.add(Integer.parseInt(scanner.next()));
+            for (int i = 5; i < parts.length; i++) {
+                grades.add(Integer.parseInt(parts[i]));
             }
 
-            Student student = new Student(name,surname,age,gender);
+            Student student = new Student(barcode, name,surname,age,gender);
             for(int grade : grades) {student.addGrade(grade);}
 
             students.add(student);
@@ -52,11 +48,14 @@ public class Main {
         scanner = new Scanner(teachersFile);
         while (scanner.hasNextLine())
         {
-            String name = scanner.next();
-            String surname = scanner.next();
-            int age = Integer.parseInt(scanner.next());
+            String line = scanner.nextLine();
+            String[] parts = line.split(" "); // Разделяем строку по пробелам
+
+            String name = parts[0];
+            String surname = parts[1];
+            int age = Integer.parseInt(parts[2]);
             boolean gender = true;
-            switch (scanner.next()){
+            switch (parts[3]){
                 case "Male":
                     gender = true;
                     break;
@@ -65,9 +64,9 @@ public class Main {
                     break;
             }
 
-            String subject = scanner.next();
-            int yearsOfExpirience = Integer.parseInt(scanner.next());
-            int salary = Integer.parseInt(scanner.next());
+            String subject = parts[4];
+            int yearsOfExpirience = Integer.parseInt(parts[5]);
+            int salary = Integer.parseInt(parts[6]);
             Teacher teacher = new Teacher(name,surname,age,gender , subject , yearsOfExpirience , salary);
 
             teachers.add(teacher);

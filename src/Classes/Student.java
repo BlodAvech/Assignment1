@@ -5,13 +5,13 @@ import java.util.ArrayList;
 public class Student extends Person
 {
     private static int id = 1;
-    private int studentID;
+    private int barcode;
     private ArrayList<Integer> grades = new ArrayList<>();
 
-    public Student(String name, String surname, int age, boolean gender)
+    public Student(int barcode , String name, String surname, int age, boolean gender)
     {
         super(name, surname, age, gender);
-        studentID = id++;
+        this.barcode = barcode;
     }
 
     public void addGrade(int grade)
@@ -32,6 +32,6 @@ public class Student extends Person
     @Override
     public String toString()
     {
-        return super.toString() + " I am a student with ID " + studentID + ".";
+        return super.toString() + " I am a student with ID " + barcode + ".";
     }
 }

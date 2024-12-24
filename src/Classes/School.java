@@ -19,7 +19,7 @@ public class School {
         String text = "";
         for(Person person : persons)
         {
-            text = text + person.toString() +"\n";
+            text = text + person.getId_gen()+"." + person.toString() +"\n";
         }
         return text;
     }
