@@ -24,6 +24,46 @@ public abstract class Person
         this.gender = gender;
     }
 
+    public static int getId() {
+        return id;
+    }
+
+    public static void setId(int id) {
+        Person.id = id;
+    }
+
+    public void setId_gen(int id_gen) {
+        this.id_gen = id_gen;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public boolean isGender() {
+        return gender;
+    }
+
+    public void setGender(boolean gender) {
+        this.gender = gender;
+    }
+
     public String getName() {
         return name;
     }
